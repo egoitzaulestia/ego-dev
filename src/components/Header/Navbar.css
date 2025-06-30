@@ -1,4 +1,7 @@
 ul {
+  position: fixed;
+  top: 0;
+  /* width: 100%; */
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -20,8 +23,9 @@ li a {
 
 li a:hover:not(.active) {
   background-color: #111;
+  color: #e267c7;
 }
 
 .active {
-  background-color: #67e286;
+  background-color: #e267c7;
 }
