@@ -4,6 +4,7 @@ const ContactForm = () => {
   const [data, setData] = useState({
     name: "",
     email: "",
+    message: "",
   });
 
   const handleInputChange = (event) => {
@@ -19,7 +20,14 @@ const ContactForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("pasan más cosas", data);
+    console.log(
+      `Sending data... Name: ${data.name}; Email: ${data.email}; Message: ${data.message}`
+    );
+
+    // setData({
+    //   name: "",
+    //   email: "",
+    // });
   };
 
   return (
@@ -27,18 +35,21 @@ const ContactForm = () => {
       <input
         type="text"
         placeholder="name"
+        value={data.name}
         onChange={handleInputChange}
         name="name"
       />
       <input
         type="email"
         placeholder="email"
+        value={data.email}
         onChange={handleInputChange}
         name="email"
       />
       <textarea
         type="message"
         placeholder="message"
+        value={data.message}
         onChange={handleInputChange}
         name="message"
       />
