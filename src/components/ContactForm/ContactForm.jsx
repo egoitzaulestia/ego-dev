@@ -7,6 +7,7 @@ const ContactForm = () => {
   });
 
   const handleInputChange = (event) => {
+    console.log(event);
     console.log(event.target.name);
     console.log(event.target.value);
 
@@ -16,8 +17,9 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = () => {
-    console.log("pasan más cosas");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("pasan más cosas", data);
   };
 
   return (
