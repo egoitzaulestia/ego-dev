@@ -7,6 +7,12 @@ const ContactForm = () => {
     message: "",
   });
 
+  const initialState = {
+    name: "",
+    email: "",
+    message: "",
+  };
+
   const handleInputChange = (event) => {
     console.log(event);
     console.log(event.target.name);
@@ -18,16 +24,17 @@ const ContactForm = () => {
     });
   };
 
+  const clearState = () => {
+    setData({ ...initialState });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(
       `Sending data... Name: ${data.name}; Email: ${data.email}; Message: ${data.message}`
     );
 
-    // setData({
-    //   name: "",
-    //   email: "",
-    // });
+    clearState();
   };
 
   return (
