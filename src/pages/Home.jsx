@@ -1,6 +1,3 @@
-import "./Home.css";
-import Header from "../Header/Header";
-
 const Home = () => {
   return (
     <main id="home">
