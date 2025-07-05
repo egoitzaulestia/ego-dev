@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 const ContactForm = () => {
+  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [message, setMessage] = useState("");
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -18,6 +20,13 @@ const ContactForm = () => {
     console.log(event.target.name);
     console.log(event.target.value);
 
+    if (data.name.length + 1 < 3) {
+      setMessage("Name must be at least 3 characters");
+      setBtnDisabled(true);
+    } else {
+      setMessage(null);
+      setBtnDisabled(false);
+    }
     setData({
       ...data,
       [event.target.name]: event.target.value,
@@ -60,7 +69,10 @@ const ContactForm = () => {
         onChange={handleInputChange}
         name="message"
       />
-      <button type="submit">Send</button>
+      <button type="submit" disabled={btnDisabled}>
+        Send
+      </button>
+      <p>{message}</p>
     </form>
   );
 };
