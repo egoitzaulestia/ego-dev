@@ -1,13 +1,19 @@
-// import { useSate } from "react";
+import { useState } from "react";
 
 const ContactForm = () => {
-  //   const [data, setData] = useState({
-  //     name: "",
-  //     email: "",
-  //   });
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+  });
 
-  const handleInputChange = () => {
-    console.log("pasan cosas");
+  const handleInputChange = (event) => {
+    console.log(event.target.name);
+    console.log(event.target.value);
+
+    setData({
+      ...data,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = () => {
@@ -27,6 +33,12 @@ const ContactForm = () => {
         placeholder="email"
         onChange={handleInputChange}
         name="email"
+      />
+      <textarea
+        type="message"
+        placeholder="message"
+        onChange={handleInputChange}
+        name="message"
       />
       <button type="submit">Send</button>
     </form>
