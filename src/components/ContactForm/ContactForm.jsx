@@ -1,10 +1,18 @@
 import { useSate } from "react";
 
 const ContactForm = () => {
-  const [data, setData] = useState({
-    name: "",
-    email: "",
-  });
+  //   const [data, setData] = useState({
+  //     name: "",
+  //     email: "",
+  //   });
+
+  const handleInputChange = () => {
+    console.log("pasan cosas");
+  };
+
+  const handleSubmit = () => {
+    console.log("pasan más cosas");
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -20,6 +28,7 @@ const ContactForm = () => {
         onChange={handleInputChange}
         name="email"
       />
+      <button type="submit">Send</button>
     </form>
   );
 };
