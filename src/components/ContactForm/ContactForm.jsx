@@ -1,4 +1,4 @@
-import { useSate } from "react";
+// import { useSate } from "react";
 
 const ContactForm = () => {
   //   const [data, setData] = useState({
