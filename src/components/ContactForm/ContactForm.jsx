@@ -17,22 +17,31 @@ const ContactForm = () => {
     message: "",
   };
 
-  const handleInputChange = (event) => {
-    console.log(event);
-    console.log(event.target.name);
-    console.log(event.target.value);
+  const handleInputChange = ({ target: { name, value } }) => {
+    // Update the form state
+    const newData = { ...data, [name]: value };
+    setData(newData);
 
-    if (data.name.length + 1 < 3) {
+    // Validation rules
+    const nameOK = newData.name.trim().length >= 3;
+    const emailOk = /^\S+@\S+\.\S+$/.test(newData.email);
+    const messageOK = newData.message.trim().length > 0;
+
+    if (!nameOK) {
       setMessage("Name must be at least 3 characters");
-      setBtnDisabled(true);
+    } else if (!emailOk) {
+      setMessage("Enter a valid email address");
+    } else if (!messageOK) {
+      setMessage("Message cannot be empty");
     } else {
-      setMessage(null);
-      setBtnDisabled(false);
+      setMessage("");
     }
-    setData({
-      ...data,
-      [event.target.name]: event.target.value,
-    });
+
+    setBtnDisabled(!(nameOK && emailOk && messageOK));
+    // setData({
+    //   ...data,
+    //   [event.target.name]: event.target.value,
+    // });
   };
 
   const clearState = () => {
