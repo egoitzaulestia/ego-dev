@@ -38,10 +38,6 @@ const ContactForm = () => {
     }
 
     setBtnDisabled(!(nameOK && emailOk && messageOK));
-    // setData({
-    //   ...data,
-    //   [event.target.name]: event.target.value,
-    // });
   };
 
   const clearState = () => {
