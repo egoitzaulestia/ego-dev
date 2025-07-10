@@ -6,15 +6,19 @@ const Header = () => {
       <nav aria-label="main navigation" className="menu">
         <ul className="menu__list">
           <li className="menu__item">
-            <a className="active" href="/">
+            <Link to={"/"} className="menu__link">
               Home
-            </a>
+            </Link>
           </li>
           <li className="menu__item">
-            <a href="/about">About</a>
+            <Link to={"/about"} className="menu__link">
+              About
+            </Link>
           </li>
           <li className="menu__item">
-            <a href="/contact">Contact</a>
+            <Link to={"/contact"} className="menu__link">
+              Contact
+            </Link>
           </li>
         </ul>
       </nav>
