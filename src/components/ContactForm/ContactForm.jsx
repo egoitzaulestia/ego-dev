@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ContactForm = () => {
+  const navigate = useNavigate();
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
   const [data, setData] = useState({
@@ -43,7 +45,14 @@ const ContactForm = () => {
       `Sending data... Name: ${data.name}; Email: ${data.email}; Message: ${data.message}`
     );
 
+    // Save form data in localStorage
+    localStorage.setItem("contactFromData", JSON.stringify(data));
+
     clearState();
+
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   };
 
   return (
